@@ -71,6 +71,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Portafolio.wsgi.application'
 
 
+LOGIN_URL = '/Authapp/login/'
+LOGIN_REDIRECT_URL = '/Authapp/dashboard/'
+LOGOUT_REDIRECT_URL = '/Authapp/login/'
+
+
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
