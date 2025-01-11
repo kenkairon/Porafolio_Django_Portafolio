@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('Authapp.urls')),
     path('contactame/', include('Contactame.urls')),
     path('database/', include('database.urls')),
+    path('queries/', include('queries.urls')),
 ]
