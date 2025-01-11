@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Authapp',
     'Contactame',
     'database',
+    'queries',
 ]
 
 MIDDLEWARE = [
