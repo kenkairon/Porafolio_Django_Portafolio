@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const ctx = document.getElementById('ventasChart').getContext('2d');
-
     // Obtener datos del servidor
     fetch("/queries/estadisticas/")
         .then(response => response.json())
