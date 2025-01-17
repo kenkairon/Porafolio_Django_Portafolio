@@ -4,17 +4,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% include 'includes/head.html' %}
 {% bootstrap_css %} 
 </head>
 <body>
 
-
+    {% include 'includes/barradenavegacion.html' %}
     <!-- Contenido principal -->
     <main>
         {% block content %}
         {% endblock %}
     </main>
-
+    {% include 'includes/footer.html' %}
 {% bootstrap_javascript %}
 </body>
 </html>
