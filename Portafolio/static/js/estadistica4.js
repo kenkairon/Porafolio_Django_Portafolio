@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             // Crear el gráfico con los datos obtenidos
             new Chart(ctx, {
-                type: 'bar', // Cambia a 'line', 'pie', etc. si deseas otro tipo de gráfico
+                type: 'bar', // Cambia a 'line', 'pie', 'bar', 'doughnut', 'polarArea','radar', 
                 data: {
                     labels: data.labels,
                     datasets: data.datasets
