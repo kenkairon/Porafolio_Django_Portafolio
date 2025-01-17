@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("/queries/estadisticas/")
         .then(response => response.json())
         .then(data => {
+            // Ver los datos obtenidos del servidor para Testiado
+            //console.log('Datos recibidos del servidor:', data);
             // Crear el gráfico con los datos obtenidos
             new Chart(ctx, {
                 type: 'bar', // Cambia a 'line', 'pie', 'bar', 'doughnut', 'polarArea','radar', 
