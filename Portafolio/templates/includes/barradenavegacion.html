@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <a class="navbar-brand" href="{% url 'home' %}">Portafolio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -10,7 +11,7 @@
                 <a class="nav-link" href="{% url 'register' %}">Crear Cuenta</a>
             </li>
             {% endif %}
-            {% if  user.is_authenticated %}
+            {% if user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'producto_list' %}">Crear Productos</a>
             </li>
@@ -25,10 +26,10 @@
         </ul>
         <span class="navbar-text ml-auto">
             {% if user.is_authenticated %}
-                Hola, {{ user.username }}!
-                <a href="{% url 'logout' %}" class="btn btn-link">Cerrar Sesión</a>
+            Hola, {{ user.username }}!
+            <a href="{% url 'logout' %}" class="btn btn-link">Cerrar Sesión</a>
             {% else %}
-                <a href="{% url 'login' %}" class="btn btn-link">Iniciar Sesión</a>
+            <a href="{% url 'login' %}" class="btn btn-link">Iniciar Sesión</a>
             {% endif %}
         </span>
     </div>
