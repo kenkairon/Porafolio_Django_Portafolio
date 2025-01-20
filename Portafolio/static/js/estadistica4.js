@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const ctx = document.getElementById('ventasChart').getContext('2d');
-
     // Obtener datos del servidor
     fetch("/queries/estadisticas/")
         .then(response => response.json())
         .then(data => {
+            // Ver los datos obtenidos del servidor para Testiado
+            //console.log('Datos recibidos del servidor:', data);
             // Crear el gráfico con los datos obtenidos
             new Chart(ctx, {
-                type: 'bar', // Cambia a 'line', 'pie', etc. si deseas otro tipo de gráfico
+                type: 'bar', // Cambia a 'line', 'pie', 'bar', 'doughnut', 'polarArea','radar', 
                 data: {
                     labels: data.labels,
                     datasets: data.datasets
