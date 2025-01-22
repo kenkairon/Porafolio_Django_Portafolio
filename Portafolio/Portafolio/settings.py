@@ -136,3 +136,12 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from decouple import config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')  # Obtiene el host del archivo .env
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)  # Obtiene el puerto del archivo .env
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)  # Obtiene si usa TLS
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Obtiene el usuario (correo) del archivo .env
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # Obtiene la contraseña del archivo .env
