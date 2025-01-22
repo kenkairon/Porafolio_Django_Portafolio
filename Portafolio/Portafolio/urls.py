@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
+from django.conf.urls import handler404
+from error_app.views import error_404
 
 # Primer método
 # def redirect_to_home(request):
@@ -31,3 +33,5 @@ urlpatterns = [
     path('database/', include('database.urls')),
     path('queries/', include('queries.urls')),
 ]
+
+handler404 = 'error_app.views.error_404'

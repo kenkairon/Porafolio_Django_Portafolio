@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+#from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0l&5%c_#9b3fk1zh+wr9^+m^+0%)qzm(izr*$%*jebh!(4%(7#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'Contactame',
     'database',
     'queries',
-
+    'error_app', 
 ]
 
 MIDDLEWARE = [
@@ -129,19 +130,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",  
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-from decouple import config
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = config('EMAIL_HOST')  # Obtiene el host del archivo .env
-EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)  # Obtiene el puerto del archivo .env
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)  # Obtiene si usa TLS
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Obtiene el usuario (correo) del archivo .env
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # Obtiene la contraseña del archivo .env
+EMAIL_HOST = 's320.v2nets.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'bastian@blandskron.com'
+EMAIL_HOST_PASSWORD = '.l7I6P@t]264'
+DEFAULT_FROM_EMAIL = 'bastian@blandskron.com'
