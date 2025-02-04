@@ -24,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0l&5%c_#9b3fk1zh+wr9^+m^+0%)qzm(izr*$%*jebh!(4%(7#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+import os
+
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://proyecto-tareas-django.onrender.com','localhost','127.0.0.1']
-
+ALLOWED_HOSTS = ['proyecto-tareas-django.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -128,14 +129,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  
-]
-
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
