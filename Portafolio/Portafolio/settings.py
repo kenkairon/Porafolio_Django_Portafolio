@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0l&5%c_#9b3fk1zh+wr9^+m^+0%)qzm(izr*$%*jebh!(4%(7#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['https://proyecto-tareas-django.onrender.com']
 
 
 # Application definition
@@ -143,13 +143,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 from decouple import config
-
 # Configuración de correo electrónico
-EMAIL_BACKEND = config('EMAIL_BACKEND')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')  # Obtiene el host del archivo .env
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)  # Obtiene el puerto del archivo .env
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)  # Obtiene si usa TLS
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Obtiene el usuario (correo) del archivo .env
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # Obtiene la contraseña del archivo .env
 
